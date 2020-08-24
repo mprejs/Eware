@@ -1,6 +1,30 @@
 .App {
   text-align: center;
 }
+
+.app-board {
+  position: relative;
+  margin: auto;
+  width: 90vw;
+  height: 90vw
+}
+
+.botPlayer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.topPlayer {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+}
+
+.scoreboard {
+  display: inline-block;
+}
+
 .nest {
   display: inline-flex;
   justify-content: center;
@@ -50,17 +74,19 @@
 /*Dropdown menu*/
 
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #cbcbcb;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
+  margin: 0
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
+  /*background: #f1f1f1;*/
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -68,7 +94,7 @@
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
+  width: 100vw;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -85,7 +111,10 @@
 .dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: flex;
+  justify-content: space-around;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {background-color: #f1f1f1;}

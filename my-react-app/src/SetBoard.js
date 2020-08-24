@@ -6,9 +6,11 @@ const clearGlow = () => {
     console.log("już nie świecę")
 };
 
-const SetNests = ({nestContent, i, playerMove, predictMove}) => {
+const SetNests = ({nestContent, i, playerMove, predictMove, playerName, playerScore}) => {
 
     const nests = [];
+
+    nests.push(<div className={`${playerName[i]}Scoreboard scoreboard`}>{playerName[i]}: {playerScore[i]} points</div>);
 
     if (i === 1) {
         for (let j=5; j>=0; j--){
@@ -16,13 +18,13 @@ const SetNests = ({nestContent, i, playerMove, predictMove}) => {
                 className={`nest btn-${i*6+j}`}
                 key={i*6+j}
                 id={i*6+j}
-                onClick={(e) => playerMove(e.target)}
+                onClick={(e) => playerMove(e.target, {i})}
                 onMouseDown={e => predictMove(e.target)}
                 onMouseUp={() =>clearGlow()}
 
             >
                 {nestContent[i*6+j]}
-                <strong>{i*6+j}</strong>
+                {/*<strong>{i*6+j}</strong>*/}
             </button>)}
 
 
@@ -34,25 +36,25 @@ const SetNests = ({nestContent, i, playerMove, predictMove}) => {
             className={`nest btn-${i*6+j}`}
             key={i*6+j}
             id={i*6+j}
-            onClick={(e) => playerMove(e.target)}
+            onClick={(e) => playerMove(e.target, {i})}
             onMouseDown={e => predictMove(e.target)}
             onMouseUp={() =>clearGlow()}
         >
             {nestContent[i*6+j]}
-            <strong>{i*6+j}</strong>
+            {/*<strong>{i*6+j}</strong>*/}
         </button>)}
 
     return (<>{nests}</>)
 };
 
-const SetBoard = ({playerNumber, nestContent, playerMove, predictMove, playerName}) => {
+const SetBoard = ({playerNumber, nestContent, playerMove, predictMove, playerName, playerScore}) => {
 
     const board = [];
 
     for (let i=0; i<playerNumber; i++){
         board.push(
-            <section className={playerName[i] } key={i}>
-            <SetNests nestContent={nestContent} playerMove={playerMove} i={i} predictMove={predictMove}/>
+            <section className={playerName[i]} key={i}>
+            <SetNests nestContent={nestContent} playerMove={playerMove} i={i} predictMove={predictMove} playerName={playerName} playerScore={playerScore}/>
             </section>)}
 
     return (

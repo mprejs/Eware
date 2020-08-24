@@ -35,16 +35,16 @@ function App() {
         const tempArr = [...playerScore];
         const currentPlayerIndex = playerName.indexOf(activePlayer);
         tempArr[currentPlayerIndex] += parseInt(nestFinalValue);
-        console.log(tempArr);
         return [...tempArr]
     };
 
-    const playerMove = (btn) => {
+    const playerMove = (btn, i) => {
         const tempArr = [...nestContent];
         const nestOriginal = parseInt(btn.id);
         const spreadLength = tempArr[nestOriginal];
         const spreadOverflow = (a) => {return (nestOriginal + a - ( (nestOriginal + a) % tempArr.length)) / tempArr.length};
-        const nestFinalValue = tempArr[(nestOriginal + spreadLength) - (tempArr.length * spreadOverflow(spreadLength))] +1;
+        const nestFinal = (nestOriginal + spreadLength) - (tempArr.length * spreadOverflow(spreadLength));
+        const nestFinalValue = tempArr[nestFinal] +1;
 
         if (spreadLength === 0) {return}
 
@@ -54,15 +54,14 @@ function App() {
             tempArr[(nestOriginal + i) - (tempArr.length * spreadOverflow(i))] += 1
         }
 
-        if (parseInt(nestFinalValue) === 2 || parseInt(nestFinalValue) === 3){
+        if ((parseInt(nestFinalValue) === 2 || parseInt(nestFinalValue) === 3) && Math.floor(nestFinal/6) !== playerName.indexOf(activePlayer)){
             const newScore = updateScore(nestFinalValue, playerScore, playerName, activePlayer);
-            setPlayerScore(newScore)
+            setPlayerScore(newScore);
+            tempArr[nestFinal]=0;
+            console.log(tempArr, playerName.indexOf(activePlayer), i)
         }
 
-        console.log(playerScore);
-
         nextPlayer(()=>passMove(activePlayer, playerName, playerNumber));
-
         setNestContent(tempArr);
     };
 
@@ -84,7 +83,7 @@ function App() {
     return (
     <div className="App">
         <section className="App-board">
-            <SetBoard playerNumber={playerNumber} nestContent={nestContent} playerMove={playerMove} predictMove={predictMove} playerName={playerName}/>
+            <SetBoard playerNumber={playerNumber} nestContent={nestContent} playerMove={playerMove} predictMove={predictMove} playerName={playerName} playerScore={playerScore}/>
         </section>
     </div>
   );

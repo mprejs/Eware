@@ -23,11 +23,15 @@ const menuItems = [
     },
     {
         link: "/About",
-        name: "Kontakt"
+        name: "About Oware"
     },
     {
         link: "/play",
         name: "New Game"
+    },
+    {
+        link: "/load",
+        name: "Load Game"
     }
 ];
 
@@ -36,12 +40,10 @@ ReactDOM.render(
     <HashRouter>
         <>
             <header>
-                <nav className="dropdown menu">
-                    <button className="dropbtn">Dropdown</button>
-                    <ul>
+                <nav className="dropdown">
+                    <ul className="dropdown-content">
                         {menuItems.map(item => (
-                            <li className="dropdown-content"
-                                key={item.link}>
+                            <li key={item.link}>
                                 <NavLink
                                     exact={item.link === "/"}
                                     to={item.link}
@@ -53,15 +55,16 @@ ReactDOM.render(
                             </li>
                         ))}
                     </ul>
+                    <button className="dropbtn">Dropdown</button>
                 </nav>
             </header>
-            <switch>
+            <Switch>
                 <Route exact path="/#" component={Main} />
                 <Route path="/About" component={About} />
                 <Route path="/play" component={App} />
                 <Route path="/load" component={Load} />
-                <Route component={NotFound} />
-            </switch>
+                {/*<Route component={NotFound} />*/}
+            </Switch>
         </>
     </HashRouter>
   </React.StrictMode>,
