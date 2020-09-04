@@ -1,18 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    HashRouter,
+    BrowserRouter,
     Route,
-    Link,
+    withRouter,
     Switch,
     NavLink,
 } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import About from './About';
+import Main from './Main';
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as serviceWorker from './serviceWorker';
 
-const Main = () => <h1>Hello</h1>;
+
+
+const DropdownMenu = (props) => {
+    const {location} = props;
+    if (location.pathname === "/") {return null}
+        return (<nav className="dropdown">
+            <ul className="dropdown-content">
+                {menuItems.map(item => (
+                    <li key={item.link}>
+                        <NavLink
+                            exact={item.link === "/"}
+                            to={item.link}
+                            className="menu-link"
+                            activeClassName="menu-link-active"
+                        >
+                            {item.name}
+                        </NavLink>
+                    </li>
+                ))}
+                {/*<Save/>*/}
+            </ul>
+            <button className="dropbtn"><FontAwesomeIcon icon={faBars} /></button>
+        </nav>)
+};
+const ShowDropdownMenu = withRouter(DropdownMenu);
 const Load = () => <h1>Load previously played game </h1>;
 const NotFound = () => <h1>404 Page not found</h1>;
 
@@ -37,36 +64,20 @@ const menuItems = [
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
-        <>
+    <BrowserRouter>
+        <div className="mainContainer">
             <header>
-                <nav className="dropdown">
-                    <ul className="dropdown-content">
-                        {menuItems.map(item => (
-                            <li key={item.link}>
-                                <NavLink
-                                    exact={item.link === "/"}
-                                    to={item.link}
-                                    className="menu-link"
-                                    activeClassName="menu-link-active"
-                                >
-                                    {item.name}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                    <button className="dropbtn">Dropdown</button>
-                </nav>
+                <ShowDropdownMenu/>
             </header>
             <Switch>
-                <Route exact path="/#" component={Main} />
+                <Route exact path="/"><Main menuItems={menuItems}/></Route>
                 <Route path="/About" component={About} />
-                <Route path="/play" component={App} />
+                <Route path="/play"><App menuItems={menuItems}/></Route>
                 <Route path="/load" component={Load} />
-                {/*<Route component={NotFound} />*/}
+                <Route component={NotFound} />
             </Switch>
-        </>
-    </HashRouter>
+        </div>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

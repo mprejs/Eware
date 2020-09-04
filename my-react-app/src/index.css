@@ -5,9 +5,133 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*Main settings*/
+.mainContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 95vw;
+  height: 95vh;
+  border: solid 2px black;
+  background-color: black;
+  box-shadow: 0 0 3px #fff, 0 0 4px #fff, 0 0 7px #e3e64b, 0 0 9px #e3e64b, 0 0 11px #e3e64b, 0 0 14px #e3e64b, 0 0 16px #e3e64b;
+}
+
+header {
+  position: absolute;
+  top:0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.mainTitle {
+  font-size: 70px;
+  color: #FFF;
+  text-shadow: 0 0 3px #FFF, 0 0 6px #FFF, 0 0 9px #FFF, 0 0 12px #49ff18, 0 0 18px #49FF18, 0 0 24px #49FF18, 0 0 33px #49FF18, 0 0 45px #49ff18;
+  margin: 50px;
+  text-align: center;
+}
+
+.mainMenu{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: #FFF;
+  }
+
+.menu-link a{
+  text-shadow: 0 0 3px #FFF, 0 0 6px #FFF, 0 0 9px #FFF, 0 0 12px #49ff18, 0 0 18px #49FF18, 0 0 24px #49FF18, 0 0 33px #49FF18, 0 0 45px #49ff18
+}
+
+.menu-link a:hover {
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #e3e64b, 0 0 8px #e3e64b, 0 0 5px #e3e64b, 0 0 12px #e3e64b, 0 0 14px #e3e64b;
+}
+
+.aboutSection {
+  color: #FFFFFF;
+  width: 90%;
+  margin: auto;
+}
+
+.aboutSection h1  {
+  text-shadow: 0 0 3px #FFF, 0 0 6px #FFF, 0 0 9px #FFF, 0 0 12px #49ff18, 0 0 18px #49FF18, 0 0 24px #49FF18, 0 0 33px #49FF18, 0 0 45px #49ff18;
+  font-size: 70px;
+}
+
+.aboutSection h4 {
+  text-shadow: 0 0 3px #fff, 0 0 4px #fff, 0 0 7px #e3e64b, 0 0 9px #e3e64b, 0 0 11px #e3e64b, 0 0 14px #e3e64b, 0 0 16px #e3e64b;
+  font-size: 20px;
+}
+
+.aboutSection section {
+  text-shadow: 0 0 3px #fff, 0 0 4px #fff, 0 0 7px #e3e64b, 0 0 9px #e3e64b, 0 0 11px #e3e64b, 0 0 14px #e3e64b, 0 0 16px #e3e64b;
+  font-size: 30px;
+}
+
+/*Dropdown menu*/
+
+.dropbtn {
+  display: block;
+  background-color: black;
+  color: white;
+  padding: 6px;
+  font-size: 20px;
+  line-height: 80%;
+  border: none;
+  margin: auto;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  transform: scale(2, 0.5);
+  transform-origin: top;
+  box-shadow: 0 0 4px #fff, 0 0 6px #faffaf, 0 0 8px #faffaf, 0 0 10px #faffaf, 0 0 12px #faffaf, 0 0 14px #faffaf, 0 0 16px #faffaf;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  z-index: 10;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  background-color: black;
+  width: 90vw;
+  box-shadow: 0 0 4px #fff, 0 0 6px #faffaf, 0 0 8px #faffaf, 0 0 10px #faffaf, 0 0 12px #faffaf, 0 0 14px #faffaf, 0 0 16px #faffaf;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content .menu-link {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #e3e64b, 0 0 8px #e3e64b, 0 0 5px #e3e64b, 0 0 12px #e3e64b, 0 0 14px #e3e64b;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #f1f1f1;}

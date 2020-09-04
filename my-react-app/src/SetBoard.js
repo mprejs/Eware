@@ -1,16 +1,23 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 const clearGlow = () => {
+    clearTimeout();
     const btnsList = document.querySelectorAll(".nest");
     btnsList.forEach(e => e.classList.remove("nest-drop", "nest-final"));
-    console.log("już nie świecę")
 };
 
 const SetNests = ({nestContent, i, playerMove, predictMove, playerName, playerScore}) => {
 
     const nests = [];
 
-    nests.push(<div className={`${playerName[i]}Scoreboard scoreboard`}>{playerName[i]}: {playerScore[i]} points</div>);
+    nests.push(<div className={`${playerName[i]}Scoreboard scoreboard`}>
+        <div className="text">{playerName[i]}: {playerScore[i]} points</div>
+        <div
+            className='scoreboardCanvas'
+            key={i}
+            id={i}/>
+    </div>);
 
     if (i === 1) {
         for (let j=5; j>=0; j--){
@@ -19,12 +26,15 @@ const SetNests = ({nestContent, i, playerMove, predictMove, playerName, playerSc
                 key={i*6+j}
                 id={i*6+j}
                 onClick={(e) => playerMove(e.target, {i})}
-                onMouseDown={e => predictMove(e.target)}
+                onMouseEnter={e => predictMove(e.target)}
+                onMouseLeave={() =>clearGlow()}
                 onMouseUp={() =>clearGlow()}
-
             >
-                {nestContent[i*6+j]}
-                {/*<strong>{i*6+j}</strong>*/}
+                <div
+                    className='canvas'
+                    key={i*6+j}
+                    id={i*6+j}/>
+                <div className="text">{nestContent[i*6+j]}</div>
             </button>)}
 
 
@@ -37,11 +47,15 @@ const SetNests = ({nestContent, i, playerMove, predictMove, playerName, playerSc
             key={i*6+j}
             id={i*6+j}
             onClick={(e) => playerMove(e.target, {i})}
-            onMouseDown={e => predictMove(e.target)}
+            onMouseEnter={e => predictMove(e.target)}
+            onMouseLeave={() =>clearGlow()}
             onMouseUp={() =>clearGlow()}
         >
-            {nestContent[i*6+j]}
-            {/*<strong>{i*6+j}</strong>*/}
+            <div
+                className='canvas'
+                key={i*6+j}
+                id={i*6+j}/>
+            <div className="text">{nestContent[i*6+j]}</div>
         </button>)}
 
     return (<>{nests}</>)
@@ -59,7 +73,7 @@ const SetBoard = ({playerNumber, nestContent, playerMove, predictMove, playerNam
 
     return (
         <>
-           {board}
+            {board}
         </>
     )
 };
