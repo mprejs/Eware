@@ -14,7 +14,8 @@
   border: 8px ridge rgba(117, 118, 121, 0.82);
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .topPlayer {
@@ -24,17 +25,18 @@
   border: 8px ridge rgba(117, 118, 121, 0.82);
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .scoreboard {
-  position: absolute;
+  /*position: absolute;*/
+  margin: 1vw;
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: calc(91vw - 4px);
-  height: 13.5vw;
+  height: 19vh;
   border: solid black 2px;
   box-shadow: inset 0px 0px 10px 7px rgba(150,150,150,0.5);
 }
@@ -45,6 +47,7 @@
 
 .botPlayerScoreboard {
   bottom: 1vw;
+  order: 1;
 }
 
 .ball {
@@ -74,7 +77,7 @@
 
 .nest {
   width: 13.5vw;
-  height: 13.5vw;
+  height: 19vh;
   margin: 1vw;
   position: relative;
   display: flex;
@@ -85,11 +88,11 @@
   box-shadow: inset 0px 0px 10px 7px rgba(150,150,150,0.5);
 }
 
-.nest :disabled{
-  transform-origin: center;
-  transform: scale(99);
-  background-color: transparent;
-}
+/*.nest :disabled{*/
+/*  transform-origin: center;*/
+/*  transform: scale(99);*/
+/*  background-color: transparent;*/
+/*}*/
 
 .nest-drop {
   animation: glowThrou 1s ease-in-out infinite alternate;

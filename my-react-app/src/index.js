@@ -19,7 +19,7 @@ import * as serviceWorker from './serviceWorker';
 
 const DropdownMenu = (props) => {
     const {location} = props;
-    if (location.pathname === "/") {return null}
+    if (location.pathname === "/Eware") {return null}
         return (<nav className="dropdown">
             <ul className="dropdown-content">
                 {menuItems.map(item => (
@@ -70,7 +70,7 @@ ReactDOM.render(
                 <ShowDropdownMenu/>
             </header>
             <Switch>
-                <Route exact path="/"><Main menuItems={menuItems}/></Route>
+                <Route path="/Eware"><Main menuItems={menuItems}/></Route>
                 <Route path="/About" component={About} />
                 <Route path="/play"><App menuItems={menuItems}/></Route>
                 <Route path="/load" component={Load} />
