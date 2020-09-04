@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3bc76e3b65e09538b78c5ddaac80f690",
+    "revision": "be5e1fd042c87b0e24205a4a77e1efe7",
     "url": "/Eware/index.html"
   },
   {
-    "revision": "1609666b60df86efda43",
-    "url": "/Eware/static/css/main.8a240ba7.chunk.css"
+    "revision": "3e769dd88e1823dfae9f",
+    "url": "/Eware/static/css/main.59e0c2fb.chunk.css"
   },
   {
     "revision": "ddb402bff580bd730559",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Eware/static/js/2.9bf7d4e8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1609666b60df86efda43",
-    "url": "/Eware/static/js/main.6de287f0.chunk.js"
+    "revision": "3e769dd88e1823dfae9f",
+    "url": "/Eware/static/js/main.8cf861dc.chunk.js"
   },
   {
     "revision": "cfff912c8739df713830",
