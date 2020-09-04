@@ -43,7 +43,7 @@ function App({menuItems}) {
     });
 
     const winner = () => {
-        if (playerName.indexOf(activePlayer) === 0){
+        if (playerName.indexOf(activePlayer) === 0  ){
             console.log('to ja');
             return playerName[playerName.length - 1]
         }
