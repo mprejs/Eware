@@ -16,6 +16,8 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  flex-grow: inherit;
+  flex-shrink: inherit;
 }
 
 .topPlayer {
@@ -27,11 +29,13 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  flex-grow: inherit;
+  flex-shrink: inherit;
 }
 
 .scoreboard {
   /*position: absolute;*/
-  margin: 1vw;
+  margin: auto 1vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +82,7 @@
 .nest {
   width: 13.5vw;
   height: 19vh;
-  margin: 1vw;
+  margin: auto 1vw;
   position: relative;
   display: flex;
   justify-content: center;

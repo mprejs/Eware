@@ -9,7 +9,7 @@ function App({menuItems}) {
     const [playerNumber, setPlayerNumber] = useState(2);
     const [nestContent, setNestContent] = useState([4,4,4,4,4,4,4,4,4,4,4,4]);
     const [activePlayer, nextPlayer] = useState("botPlayer");
-    const [playerScore, setPlayerScore] = useState([23,23]);
+    const [playerScore, setPlayerScore] = useState([0,0]);
     const playerName = ["botPlayer", "topPlayer"];
     const menuItemsArr = [...menuItems];
     let tempScore = 0;
@@ -44,7 +44,6 @@ function App({menuItems}) {
 
     const winner = () => {
         if (playerName.indexOf(activePlayer) === 0  ){
-            console.log('to ja');
             return playerName[playerName.length - 1]
         }
         return playerName[playerName.indexOf(activePlayer)-1]
@@ -54,7 +53,7 @@ function App({menuItems}) {
         const tempArr = [...playerScore];
         const currentPlayerIndex = playerName.indexOf(activePlayer);
         tempArr[currentPlayerIndex] += parseInt(addedPoints);
-        if (tempArr.some(x => x > 23)){document.querySelector('.winnerBoard').classList.add('winnerBoardVisible')}
+        if (tempArr.some(x => x > 24)){document.querySelector('.winnerBoard').classList.add('winnerBoardVisible')}
         return [...tempArr]
     };
 
@@ -103,6 +102,7 @@ function App({menuItems}) {
         const spreadOverflow = (a) => {return (nestOriginal + a - ((nestOriginal + a) % tempArr.length)) / tempArr.length};
         const nestFinal = (nestOriginal + spreadLength) - (tempArr.length * spreadOverflow(spreadLength));
         const nestFinalValue = tempArr[nestFinal] +1;
+
 
         // can't choose an empty nest
         if (spreadLength === 0) {return}

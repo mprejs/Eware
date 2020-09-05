@@ -11,6 +11,7 @@ import './index.css';
 import App from './App';
 import About from './About';
 import Main from './Main';
+import Tutorial from "./Tutorial";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as serviceWorker from './serviceWorker';
@@ -45,12 +46,16 @@ const NotFound = () => <h1>404 Page not found</h1>;
 
 const menuItems = [
     {
-        link: "/",
+        link: "/Eware",
         name: "Main Page"
     },
     {
         link: "/About",
         name: "About Oware"
+    },
+    {
+        link: "/Tutorial",
+        name: "Tutorial"
     },
     {
         link: "/play",
@@ -72,6 +77,7 @@ ReactDOM.render(
             <Switch>
                 <Route path="/Eware"><Main menuItems={menuItems}/></Route>
                 <Route path="/About" component={About} />
+                <Route path="/Tutorial" component={Tutorial} />
                 <Route path="/play"><App menuItems={menuItems}/></Route>
                 <Route path="/load" component={Load} />
                 <Route component={NotFound} />
